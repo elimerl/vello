@@ -241,16 +241,16 @@ impl ImageFormat {
     #[cfg(feature = "wgpu")]
     pub fn to_wgpu(self) -> wgpu::TextureFormat {
         match self {
-            Self::Rgba8 => wgpu::TextureFormat::Rgba8Unorm,
-            Self::Bgra8 => wgpu::TextureFormat::Bgra8Unorm,
+            Self::Rgba8 => wgpu::TextureFormat::Rgba8UnormSrgb,
+            Self::Bgra8 => wgpu::TextureFormat::Bgra8UnormSrgb,
         }
     }
 
     #[cfg(feature = "wgpu")]
     pub fn from_wgpu(format: wgpu::TextureFormat) -> Self {
         match format {
-            wgpu::TextureFormat::Rgba8Unorm => Self::Rgba8,
-            wgpu::TextureFormat::Bgra8Unorm => Self::Bgra8,
+            wgpu::TextureFormat::Rgba8UnormSrgb => Self::Rgba8,
+            wgpu::TextureFormat::Bgra8UnormSrgb => Self::Bgra8,
             _ => unimplemented!(),
         }
     }
